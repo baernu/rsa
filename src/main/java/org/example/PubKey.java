@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class PubKey extends Encrypt{
-    private static List<BigInteger> resultList = new ArrayList<>();
+    private List<BigInteger> resultList = new ArrayList<>();
     private Iterator<BigInteger> iterator = encryptList.iterator();
 
 

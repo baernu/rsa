@@ -1,38 +1,17 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+public class Hash<T> {
 
-public class Hash {
-    private String string;
-    private int key;
-    private int hashCode;
+    private T value;
 
-    public Hash(String string, int key) {
-        this.string = string;
-        this.key = key;
-        this.hashCode = hashCode();
+    public Hash(T value) {
+        this.value = value;
     }
 
-    public String getString() {
-        return string;
+    public Hash() {
     }
 
-    public int getKey() {
-        return key;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Hash hash = (Hash) o;
-        return key == hash.key && Objects.equals(string, hash.string);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(string, key);
+    public T getValue() {
+        return this.value;
     }
 }

@@ -23,8 +23,8 @@ public class App {
         App app = new App();
 
         String input = "Doch je mehr sich die Kryptowährungen dort einnisten, desto mehr steigt das Risiko am Finanzplatz. Kommt es zu einem Absturz der Bitcoin-Kurse, könnte es das künftig auch einen breiteren Anlegerkreis treffen und nicht nur einige wenige Spekulanten.Im Falle des Bitcoin-ETF des amerikanische Anbieter ProShares stellt sich zudem die Frage, wie stark der Zusammenhang mit dem Bitcoin-Kurs ist. Der neue Bitcoin-ETF investiert in Futures. Dabei handelt sich um Terminkontrakte, die den künftigen Preis der Kryptowährung abbilden. Somit setzen die Anleger also nicht direkt Eins zu Eins auf den Bitcoin, sondern indirekt über Futures-Kontrakte.";
-        Hashing hash = new Hashing(input, 200);
-        List<Hash> hasList = hash.getHashList();
+        Hashing hashing = new Hashing(input, 200);
+        List<Hash> hasList = hashing.getHashList();
         Iterator<Hash> iterator1 = hasList.iterator();
         List<BigInteger> pubResult = new ArrayList<>();
         while (iterator1.hasNext()) {
@@ -32,34 +32,16 @@ public class App {
             PubKey pubKey = new PubKey(ascii.getByteList(), app.e,app.n);
 
             pubKey.getResultList().stream().forEach(e -> System.out.print(e + " "));
-            pubResult.addAll(pubKey.getResultList());
+            System.out.println();
+            PrivKey privKey = new PrivKey(pubKey.getResultList(), app.d, app.n);
+            privKey.getResultList().stream().forEach(e -> System.out.print(e + " "));
+            System.out.println();
+            privKey.getResultList().stream().forEach(e -> {
+                System.out.print((char)e.byteValue());
+            });
+
         }
 
-        System.out.println();
-        PrivKey privKey = new PrivKey(pubResult,app.d, app.n);
-        privKey.getResultList().stream().forEach(e -> System.out.print(e + " "));
-        System.out.println();
-        privKey.getResultList().stream().forEach(e -> {
-            System.out.print((char)e.byteValue());
-        });
 
-
-        System.out.println();
-        int c = (int) 'D';
-        int d = (int)'o';
-        System.out.println(c + " " + d);
-
-
-
-        /*PrivKey privKey = new PrivKey(dArray[0], app.n);
-
-        ascii.getByteList().stream().forEach(e-> System.out.println(e));
-        Hashing hash = new Hashing(input, 200);
-        List<String> hasList = hash.getHashList();
-        Iterator<String> iterator = hasList.iterator();
-        Ascii ascii = new Ascii(iterator.next());
-        List<Integer> byteList = ascii.getByteList();
-        Decrypt decrypt = new Decrypt(byteList, app.e , app.n);
-        Encrypt encrypt = new Encrypt(byteList, app.d, app.n);*/
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PrivKey extends Decrypt{
 
-    private static List<BigInteger> resultList = new ArrayList<>();
+    private List<BigInteger> resultList = new ArrayList<>();
     private Iterator<BigInteger> iterator = decryptList.iterator();
 
     public PrivKey(List<BigInteger> list, BigInteger d, BigInteger n) {

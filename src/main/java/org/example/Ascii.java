@@ -1,7 +1,6 @@
 package org.example;
 
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,21 +10,12 @@ public class Ascii {
     private char[] chars = new char[1000];
     private String string = "";
 
-    public Ascii(Hash hash) {
+    public Ascii(Hash<String> hash) {
 
-        this.input = hash.getString();
-       chars = hash.getString().toCharArray();
+        this.input = hash.getValue();
+       chars = hash.getValue().toCharArray();
         for (int i = 0; i < chars.length; i++) {
-           /* if (i % 3 != 0 || i == 0) {
-                string = string.concat(String.valueOf((int)chars[i]));
-            } else {
-                BigInteger k = BigInteger.valueOf(Integer.parseInt(string));
-                result.add(k);
-                string = "";
-                string = string.concat(String.valueOf((int)chars[i]));
-            }*/
-        result.add(BigInteger.valueOf((Integer.parseInt(String.valueOf((int)chars[i])))));
-
+            result.add(BigInteger.valueOf((Integer.parseInt(String.valueOf((int)chars[i])))));
         }
     }
 
