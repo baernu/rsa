@@ -5,21 +5,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class PrivKey extends Decrypt{
+public class PrivKey {
 
-    private List<BigInteger> resultList = new ArrayList<>();
-    private Iterator<BigInteger> iterator = decryptList.iterator();
+    private List<Long> encryptList = new ArrayList<>();
+    private List<Long> resultList = new ArrayList<>();
+    private Iterator<Long> iterator ;
 
-    public PrivKey(List<BigInteger> list, BigInteger d, BigInteger n) {
-        super(list, d, n);
+    public PrivKey(List<Long> list, long d, long n) {
+        encryptList = list;
+        iterator = encryptList.iterator();
         while(iterator.hasNext()) {
-            BigInteger k = iterator.next();
-            BigInteger i = k.modPow(d,n);
-            resultList.add(i);
+            long k = iterator.next();
+            BigInteger i = BigInteger.valueOf(k).modPow(BigInteger.valueOf(d), BigInteger.valueOf(n));
+            resultList.add(i.longValue());
         }
     }
 
-    public List<BigInteger> getResultList() {
+    public List<Long> getResultList() {
         return this.resultList;
     }
 }

@@ -3,17 +3,17 @@ package org.example;
 import java.math.BigInteger;
 
 public class Primefactor {
-    private int p;
-    private int q;
+    private long p;
+    private long q;
 
-    public Primefactor(int p, int q) {
+    public Primefactor(long p, long q) {
         this.p = p;
         this.q = q;
     }
-    public int getP() {
+    public long getP() {
         return this.p;
     }
-    public int getQ() {
+    public long getQ() {
         return this.q;
     }
 }

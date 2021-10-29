@@ -5,21 +5,27 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class PubKey extends Encrypt{
-    private List<BigInteger> resultList = new ArrayList<>();
-    private Iterator<BigInteger> iterator = encryptList.iterator();
+public class PubKey {
+    private List<Long> resultList = new ArrayList<>();
+    private List<Long> encryptList = new ArrayList<>();
+    private Iterator<Long> iterator;
+    private long e;
+    private long n;
 
 
-    public PubKey(List<BigInteger> list, BigInteger e, BigInteger n) {
-        super(list, e, n);
+    public PubKey(List<Long> list, long e, long n) {
+        this.encryptList = list;
+        this.e = e;
+        this.n = n;
+        iterator = encryptList.iterator();
         while(iterator.hasNext()) {
-            BigInteger k = iterator.next();
-            BigInteger i = k.modPow(e, n);
+            long k = iterator.next();
+            long i = (long)Math.pow(k,e) % n;
             resultList.add(i);
         }
     }
 
-    public List<BigInteger> getResultList() {
+    public List<Long> getResultList() {
         return this.resultList;
     }
 }
