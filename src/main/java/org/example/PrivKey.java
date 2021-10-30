@@ -21,6 +21,7 @@ public class PrivKey {
         }
     }
 
+
     public List<Long> getResultList() {
         return this.resultList;
     }
