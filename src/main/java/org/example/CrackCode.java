@@ -39,19 +39,24 @@ public class CrackCode {
 
     }
 
+
     public List<Primefactor> getPrimeFactorList() {
         return this.primeFactorList;
     }
 
-    public void generateD() {
+    public void generateD(int i) {
         Iterator<Primefactor> iterator = primeFactorList.iterator();
         while (iterator.hasNext()) {
             Primefactor actualPair = iterator.next();
             long p = actualPair.getP();
             long q = actualPair.getQ();
             long lamda_n = (p - 1)*(q - 1);
-            while (d < lamda_n) {
+            while (d < lamda_n*i) {
+//                BigInteger bigD = BigInteger.valueOf(d);
+//                BigInteger bigE = BigInteger.valueOf(e);
+//                BigInteger bigLamda = BigInteger.valueOf(lamda_n);
                 if ((d * e) % lamda_n == 1) {
+//                if (bigD.multiply(bigE).mod(bigLamda).equals(BigInteger.valueOf(1))) {
                     dList.add(d);
                 }
                 d++;
