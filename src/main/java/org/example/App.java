@@ -110,7 +110,7 @@ public class App {
 
             crackCode3.generateD(1);
             List<Long> dList3 = crackCode3.getDlist();
-            
+
             dList3.stream().forEach(e -> System.out.print(e + " "));
             System.out.println();
 
