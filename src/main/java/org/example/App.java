@@ -26,7 +26,7 @@ public class App {
     private final long[] array = { 4784746,    11014233,     8661273,    15230087,    13051775,    11014233};
     private List<Long> m_2 = Arrays.stream(array).boxed().collect(Collectors.toList());
 
-    private final long e3 = 11;
+    private final long e3 = 5;
     private final long n3 = 36904181;
 
     private long d3;
